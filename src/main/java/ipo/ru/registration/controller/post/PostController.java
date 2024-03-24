@@ -5,8 +5,10 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import ipo.ru.registration.dto.PostDto;
 import ipo.ru.registration.dto.entity.PostEntity;
 import ipo.ru.registration.exceptions.TestException;
+import ipo.ru.registration.mapper.PostMapper;
 import ipo.ru.registration.repository.PostRepository;
 import ipo.ru.registration.service.api.PostService;
 import jakarta.annotation.PostConstruct;
@@ -61,9 +63,9 @@ private void fillDb() {
             content = @Content(schema = @Schema(implementation = TestException.class)))
     @ApiResponse(responseCode = "500", description = "smth bad",
             content = @Content(schema = @Schema(implementation = TestException.class)))
-    public List<PostEntity> getTest() {
+    public List<PostDto> getTest() {
 
-        return postService.findAll();
+        return postService.findAll().stream().map(PostMapper::convert).toList();
     }
 
 
