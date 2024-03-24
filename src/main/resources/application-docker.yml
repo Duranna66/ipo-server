@@ -4,3 +4,15 @@ spring:
       host: 91.186.197.234
       port: 27017
       database: ipo
+  application:
+    name: ipo-post
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://91.186.197.234:5757/eureka
+
