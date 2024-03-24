@@ -10,7 +10,10 @@ import java.util.UUID;
 @Data
 @Builder
 @Schema(description = "Object of post")
-public class PostDto {
+public class PostDtoOut {
+
+    @Schema(description = "id of post")
+    private UUID id;
     @Schema(description = "text of post")
     private String text;
     @Schema(description = "time of creation")

@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
 
 @Data
 @Builder
-public class TestException  {
+public class PostException {
     private final String url;
     private final HttpMethod httpMethod;
     private final HttpStatus httpStatus;

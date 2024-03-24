@@ -1,6 +1,6 @@
 spring:
   data:
     mongodb:
-      host: ipo-mongo
+      host: 91.186.197.234
       port: 27017
       database: ipo

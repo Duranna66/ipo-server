@@ -1,5 +1,6 @@
 package ipo.ru.registration.dto.entity;
 
+import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
@@ -15,10 +16,11 @@ import java.util.UUID;
 @Data
 @ToString
 @EqualsAndHashCode
+@Builder
 public class PostEntity {
     @Id
     private UUID id;
     private String text;
-    private Instant createDate = Instant.now();
+    private Instant createDate;
     private Instant updateDate;
 }

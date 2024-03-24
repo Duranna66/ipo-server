@@ -5,7 +5,7 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import ipo.ru.registration.exceptions.TestException;
+import ipo.ru.registration.exceptions.PostException;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
@@ -28,11 +28,11 @@ public class TestController {
     @ResponseStatus(HttpStatus.ACCEPTED)
     @Operation(description = "Receive results for checking")
     @ApiResponse(responseCode = "200", description = "complete operating",
-    content = @Content(schema = @Schema(implementation = TestException.class)))
+    content = @Content(schema = @Schema(implementation = PostException.class)))
     @ApiResponse(responseCode = "400", description = "not correct",
-            content = @Content(schema = @Schema(implementation = TestException.class)))
+            content = @Content(schema = @Schema(implementation = PostException.class)))
     @ApiResponse(responseCode = "500", description = "smth bad",
-            content = @Content(schema = @Schema(implementation = TestException.class)))
+            content = @Content(schema = @Schema(implementation = PostException.class)))
     public String getTest() {
         return "test message " + new Date();
     }
