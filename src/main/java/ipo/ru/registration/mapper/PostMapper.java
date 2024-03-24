@@ -27,9 +27,8 @@ public class PostMapper {
 
         return PostEntity.builder()
                 .text(postDtoIn.getText())
-                .createDate(Optional.of(postDtoIn.getCreateDate()).orElse(Instant.now()))
-                .updateDate(Optional.of(postDtoIn.getUpdateDate()).orElse(null))
-                .id(Optional.of(postDtoIn.getId()).orElseThrow((Supplier<Throwable>) Exception::new))
+                .createDate(Optional.ofNullable(postDtoIn.getCreateDate()).orElse(Instant.now()))
+                .id(UUID.randomUUID())
                 .build();
     }
 }
