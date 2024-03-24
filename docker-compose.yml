@@ -1,0 +1,18 @@
+version: "3"
+
+services:
+  ipo-server:
+    build: ./
+    container_name: ipo-server
+    ports:
+      - "8082:8082"
+      - "5005:5005"
+    environment:
+      SERVER_PORT: "8082"
+    depends_on:
+      - ipo-mongo
+  ipo-mongo:
+    container_name: ipo-mongo
+    image: mongo:4.4
+    ports:
+      - "27017:27017"
