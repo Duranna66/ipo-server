@@ -1,6 +1,23 @@
 spring:
+  application:
+    name: ipo-post
   data:
     mongodb:
       host: 91.186.197.234
       port: 27017
       database: ipo
+
+
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://ipo-eureka:5757/eureka
+logging:
+  level:
+    org:
+      springframework:
+        security: DEBUG

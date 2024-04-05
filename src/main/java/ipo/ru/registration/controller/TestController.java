@@ -24,8 +24,8 @@ import java.util.Date;
 public class TestController {
 
 
-    @GetMapping("/")
-    @ResponseStatus(HttpStatus.ACCEPTED)
+    @GetMapping("/public")
+    @ResponseStatus(HttpStatus.OK)
     @Operation(description = "Receive results for checking")
     @ApiResponse(responseCode = "200", description = "complete operating",
     content = @Content(schema = @Schema(implementation = PostException.class)))
@@ -33,8 +33,44 @@ public class TestController {
             content = @Content(schema = @Schema(implementation = PostException.class)))
     @ApiResponse(responseCode = "500", description = "smth bad",
             content = @Content(schema = @Schema(implementation = PostException.class)))
-    public String getTest() {
-        return "test message " + new Date();
+    public String getpublic() {
+        return "public message " + new Date();
+    }
+    @GetMapping("/moderator-access")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(description = "Receive results for checking")
+    @ApiResponse(responseCode = "200", description = "complete operating",
+            content = @Content(schema = @Schema(implementation = PostException.class)))
+    @ApiResponse(responseCode = "400", description = "not correct",
+            content = @Content(schema = @Schema(implementation = PostException.class)))
+    @ApiResponse(responseCode = "500", description = "smth bad",
+            content = @Content(schema = @Schema(implementation = PostException.class)))
+    public String getModerator() {
+        return "moderator message " + new Date();
+    }
+    @GetMapping("/user")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(description = "Receive results for checking")
+    @ApiResponse(responseCode = "200", description = "complete operating",
+            content = @Content(schema = @Schema(implementation = PostException.class)))
+    @ApiResponse(responseCode = "400", description = "not correct",
+            content = @Content(schema = @Schema(implementation = PostException.class)))
+    @ApiResponse(responseCode = "500", description = "smth bad",
+            content = @Content(schema = @Schema(implementation = PostException.class)))
+    public String getUser() {
+        return "user message " + new Date();
+    }
+    @GetMapping("/admin-access")
+    @ResponseStatus(HttpStatus.OK)
+    @Operation(description = "Receive results for checking")
+    @ApiResponse(responseCode = "200", description = "complete operating",
+            content = @Content(schema = @Schema(implementation = PostException.class)))
+    @ApiResponse(responseCode = "400", description = "not correct",
+            content = @Content(schema = @Schema(implementation = PostException.class)))
+    @ApiResponse(responseCode = "500", description = "smth bad",
+            content = @Content(schema = @Schema(implementation = PostException.class)))
+    public String getAdmin() {
+        return "admin message " + new Date();
     }
 
 
